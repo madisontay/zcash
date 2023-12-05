@@ -1,0 +1,27 @@
+name: Build and Push Docker Image to Docker Hub
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  set_env:
+    uses: zcash/.github/.github/workflows/standard-versioning-for-docker.yaml@main
+
+  build_push:
+    uses: zcash/.github/.github/workflows/build-and-push-docker-hub.yaml@main
+    needs: set_env
+    with:
+      image_name: test
+      image_tags: ${{ needs.set_env.outputs.tags }}
+      dockerfile: ./contrib/docker/Dockerfile
+      context: ./contrib/docker/
+    secrets:
+      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      dockerhub_registry: ${{ secrets.DOCKERHUB_REGISTRY }}
