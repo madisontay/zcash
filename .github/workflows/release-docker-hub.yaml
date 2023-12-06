@@ -1,15 +1,10 @@
 name: Build and Push Docker Image to Docker Hub
 
 on:
-  pull_request: #test
   push:
     tags:
       - "v*.*.*"
   workflow_dispatch:
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
 
 jobs:
   set_env:
@@ -26,7 +21,7 @@ jobs:
     uses: zcash/.github/.github/workflows/build-and-push-docker-hub.yaml@main
     needs: set_env
     with:
-      image_name: test #zcashd
+      image_name: zcashd
       image_tags: ${{ needs.set_env.outputs.tags }}
       dockerfile: ./contrib/docker/Dockerfile
       context: ./contrib/docker/
