@@ -5,6 +5,10 @@ on:
     tags:
       - "v*.*.*"
   workflow_dispatch:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
 
 jobs:
   set_env:
