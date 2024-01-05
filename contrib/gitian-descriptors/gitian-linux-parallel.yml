@@ -5,6 +5,7 @@ distro: "debian"
 suites:
 - "buster"
 - "bullseye"
+- "bookworm"
 architectures:
 - "amd64"
 packages:
