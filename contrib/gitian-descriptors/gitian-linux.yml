@@ -29,6 +29,7 @@ packages:
 - "unzip"
 - "wget"
 - "zlib1g-dev"
+- "python-is-python3"
 remotes:
 - "url": "https://github.com/zcash/zcash.git"
   "dir": "zcash"
