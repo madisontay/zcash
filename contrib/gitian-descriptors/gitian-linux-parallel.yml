@@ -3,8 +3,6 @@ name: "zcash-5.8.0"
 enable_cache: true
 distro: "debian"
 suites:
-- "buster"
-- "bullseye"
 - "bookworm"
 architectures:
 - "amd64"
