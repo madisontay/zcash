@@ -26,6 +26,7 @@ packages:
 - "ncurses-dev"
 - "pkg-config"
 - "python3"
+- "python"
 - "unzip"
 - "wget"
 - "zlib1g-dev"
